@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: moezm
+Build-Jdk: 17.0.3
+Implementation-Title: BPDBackEnd
+Implementation-Version: 1.0
+Implementation-Vendor-Id: tn.esprit.spring
+Implementation-URL: https://spring.io/projects/spring-boot/BPDBackEnd
+Created-By: Maven Integration for Eclipse
+
