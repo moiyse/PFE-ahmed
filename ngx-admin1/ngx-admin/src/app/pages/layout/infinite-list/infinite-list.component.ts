@@ -41,7 +41,6 @@ export class InfiniteListComponent implements OnInit {
         console.log(this.BudgetInitials);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
           this._router.navigateByUrl("/auth");
           this.tokenStorage.signOut();
       }

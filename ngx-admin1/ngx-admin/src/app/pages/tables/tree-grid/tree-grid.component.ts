@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { Direction } from '../../../model/direction';
 import { DirectionService } from '../../../services/direction.service';
+import { TokenStorageService } from '../../../services/token-storage.service';
 
 interface TreeNode<T> {
   data: T;
@@ -29,7 +31,7 @@ export class TreeGridComponent {
   sortDirection: NbSortDirection = NbSortDirection.NONE;
   directionService: any;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Direction>, private DirectionsService: DirectionService) {
+  constructor(private _router:Router,private tokenStorage:TokenStorageService,private dataSourceBuilder: NbTreeGridDataSourceBuilder<Direction>, private DirectionsService: DirectionService) {
     this.dataSource = this.dataSourceBuilder.create(this.directions);
   }
 
@@ -40,12 +42,13 @@ export class TreeGridComponent {
 
   public getDirection(): void {
     this.directionService.getDirections().subscribe(
-      (response: Direction[]) => {
+      (response) => {
         this.directions = response;
         console.log(this.directions);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this._router.navigateByUrl("/auth");
+          this.tokenStorage.signOut();
       }
     );
   }

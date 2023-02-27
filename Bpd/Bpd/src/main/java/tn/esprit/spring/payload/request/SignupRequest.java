@@ -1,6 +1,7 @@
 package tn.esprit.spring.payload.request;
 
 
+import lombok.ToString;
 import tn.esprit.spring.entities.Role;
 
 import java.util.Set;
@@ -9,6 +10,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.*;
 
+@ToString
 public class SignupRequest {
     @NotBlank
     private String nom;

@@ -43,7 +43,6 @@ export class EntrepriseComponent implements OnInit {
         console.log(this.entreprises);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
           this._router.navigateByUrl("/auth");
           this.tokenStorage.signOut();
       }

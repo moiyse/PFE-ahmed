@@ -5,10 +5,17 @@
     </div>
     <form [formGroup]="signUp" (ngSubmit)="onSubmit()" class="login-form">
         <div class="address-email">
-            <label>Full name :</label>
-            <input type="text" formControlName="fullName" placeholder="Full name" class="class-input">
-            <div *ngIf="fs.fullName.invalid && (fs.fullName.dirty || fs.fullName.touched)">
-                <div class="text-danger" *ngIf="fs.fullName.errors?.required" >*Full name is required please fill it</div>
+            <label>Nom</label>
+            <input type="text" formControlName="nom" placeholder="Nom" class="class-input">
+            <div *ngIf="fs.nom.invalid && (fs.nom.dirty || fs.nom.touched)">
+                <div class="text-danger" *ngIf="fs.fullName.errors?.required" >*Name is required please fill it</div>
+            </div>
+        </div>
+        <div class="address-email">
+            <label>Prenom</label>
+            <input type="text" formControlName="prenom" placeholder="Prenom" class="class-input">
+            <div *ngIf="fs.prenom.invalid && (fs.prenom.dirty || fs.prenom.touched)">
+                <div class="text-danger" *ngIf="fs.prenom.errors?.required" >*Prenom is required please fill it</div>
             </div>
         </div>
         <div class="address-email">
@@ -36,6 +43,14 @@
                 <div class="text-danger" *ngIf="fs.repeatPassword.errors?.minlength" >*password is too short it must be over 8 carachters</div>
             </div>
         </div>
+        <div class="address-email">
+            <label>Role :</label>
+            <select formControlName="role" style="border-color: #8f9bb3;color: #8f9bb3; font-family: Open Sans, sans-serif;">
+                <option [ngValue]="null" disabled>Select Role</option>
+                <option *ngFor="let role of Roles" [ngValue]="role.name">{{role.name}}</option>
+              </select>
+        </div>
+        
         <button type="submit" class="button-login"> REGISTER </button>
     </form>
     <div class="social-media-container">

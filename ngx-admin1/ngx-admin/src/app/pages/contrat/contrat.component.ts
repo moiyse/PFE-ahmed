@@ -51,7 +51,6 @@ export class ContratComponent implements OnInit {
         console.log(this.listcontrats);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
           this._router.navigateByUrl("/auth");
           this.tokenStorage.signOut();
       }

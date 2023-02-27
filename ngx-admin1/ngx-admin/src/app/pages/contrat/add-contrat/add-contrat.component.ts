@@ -30,7 +30,6 @@ export class AddContratComponent implements OnInit {
         console.log(this.employees);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
           this._router.navigateByUrl("/auth");
           this.tokenStorage.signOut();
       }

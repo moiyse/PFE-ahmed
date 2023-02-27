@@ -37,7 +37,6 @@ constructor(private _router:Router,private tokenStorage:TokenStorageService,priv
         console.log(this.BudgetInitials);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
         this._router.navigateByUrl("/auth");
         this.tokenStorage.signOut();
        

@@ -52,7 +52,6 @@ export class ListComponent {
         this.getUsers();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
           this._router.navigateByUrl("/auth");
           this.tokenStorage.signOut();
       }
